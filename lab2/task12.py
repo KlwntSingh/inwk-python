@@ -21,21 +21,27 @@ def draw(t, length, n):
 	lt(t, angle)
 	bk(t, length*n)
 
-bob=turtle.Turtle()
 
-def koch(length):
+def koch(t, length):
 	if length < 3:
-		bob.fd(length)
+		t.fd(length)
 		return
+	sides=5
+	koch(t, length/3)
+	t.lt(60)
+	koch(t, length/3)
+	t.rt(120)
+	koch(t, length/3)
+	t.lt(60)
+	koch(t, length/3)
 
-	draw(bob, length/3, 4)
-	bob.lt(60)
-	draw(bob, length/3, 4)
-	bob.rt(120)
-	draw(bob, length/3, 4)
-	bob.lt(60)
-	draw(bob, length/3, 4)
+def snowflake(t, length):
+	for i in range(3):
+		koch(t, length)
+		t.rt(120)
 
-koch(30)
+
+bob=turtle.Turtle()
+koch(bob, 40)
 
 turtle.mainloop()
