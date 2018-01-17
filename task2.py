@@ -5,11 +5,18 @@ def findBiggestInOrder(a, b, c, d):
                 return (a,b,c,d)
             else:
                 return (a,b,d,c)
+
         else:
-            if b > d:
-                return (a,c, b, d)
+            if a > c :
+                if b > d:
+                    return (a,c, b, d)
+                else:
+                    return (a, c, d, b)
             else:
-                return (a, c, d, b)
+                if b > d:
+                    return (c, a, b, d)
+                else:
+                    return (c, a, d, b)
     else:
         if a > c:
             if c > d:
@@ -17,10 +24,16 @@ def findBiggestInOrder(a, b, c, d):
             else:
                 return (b, a,c, d)
         else:
-            if a > d:
-                return (b, c, a, d)
+            if b > c:
+                if a > d:
+                    return (b, c, a, d)
+                else:
+                    return (b, c, d, a)
             else:
-                return (b, c, d, a)
+                if a > d:
+                    return (c, b, a, d)
+                else:
+                    return (c, b, d, a)
 
 a=int(input("First number"))
 b=int(input("Second number"))

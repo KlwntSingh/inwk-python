@@ -9,7 +9,7 @@ def circle(radius):
     return PI * radius**2
 
 def sphere(radius):
-    return 4/3*PI*radius**3
+    return 4*PI*radius**2
 
 
 radius=int(input("Enter the length of side"))
